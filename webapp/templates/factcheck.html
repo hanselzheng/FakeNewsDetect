@@ -1,0 +1,27 @@
+{% extends "index.html" %}
+
+{% block title %} Fact Checker {% endblock %}
+
+{% block body %}
+
+<br>
+
+<!-- Text area and submit button to input article-->
+<form method="POST">
+    <textarea name="article" id="article" class="form-control" placeholder="Enter your article here"></textarea>
+
+    <br>
+
+    <div align="center">
+        <button type="submit" class="btn btn-primary">Scan</button>
+    </div>
+</form>
+
+<br>
+
+<div align="center">
+    <a href="/">
+    <button type="button" class="btn btn-secondary">Back</button></a>
+</div>
+
+{% endblock %}
