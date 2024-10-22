@@ -87,19 +87,28 @@ def predict_news(input):
     transformed_text = pipeline.named_steps['preprocess'].transform([input])
     prediction = pipeline.named_steps['model'].predict(transformed_text)
 
+    reliable = "This news article is reliable"
+    unreliable = "This news article is NOT reliable"
+
     if prediction[0] == 0:
-        return 0  # reliable
+        return reliable
     else:
-        return 1 # unreliable
+        return unreliable
 
 
-# For Testing
+
+# For Testing Accuracy Score, uncomment these 3 lines below
 
 # train_accuracy, test_accuracy = train_eval_model()
 # print(f"Accuracy Score: {train_accuracy}")
 # print(f"Accuracy Score: {test_accuracy}")
 
 
-# user_input = input("Enter a news article: ")
-# prediction_result = predict_news(user_input)
-# print("\nPrediction:", prediction_result)
+
+
+# Run the Program!
+print("\nWelcome to Scammer Scanner — Where we scan for scams in news articles!")
+
+user_input = input("Enter a news article: \n")
+prediction_result = predict_news(user_input)
+print("\nPrediction:", prediction_result)
