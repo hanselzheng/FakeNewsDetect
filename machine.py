@@ -87,8 +87,8 @@ def predict_news(input):
     transformed_text = pipeline.named_steps['preprocess'].transform([input])
     prediction = pipeline.named_steps['model'].predict(transformed_text)
 
-    reliable = "This news article is reliable"
-    unreliable = "This news article is NOT reliable"
+    reliable = "This news article is reliable (real news)"
+    unreliable = "This news article is NOT reliable (fake news)"
 
     if prediction[0] == 0:
         return reliable
